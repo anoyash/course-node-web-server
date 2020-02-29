@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 var app = express();
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials');              //used to work with advanced templeting
 app.set('view engine','hbs');
@@ -47,6 +48,6 @@ app.get('/about' , (req , res )=> {
     });                        //we are also passing some arguments to make it more dynamic
 });
 
-app.listen(3000, ()=>{
-    console.log('Server is updated on port');
+app.listen(port, ()=>{
+    console.log(`Server is updated on port ${port}`);
 });
